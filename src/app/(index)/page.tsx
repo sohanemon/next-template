@@ -10,9 +10,7 @@ export const metadata = {
   title: 'Home',
 };
 export default async function IndexPage() {
-  const msg =
-    typeof window !== 'undefined' &&
-    ((await trpc.welcome.query({ name: '`sohanemon`' })) as any);
+  const msg = await trpc.welcome.query({ name: '`sohanemon`' });
 
   return (
     <section>
