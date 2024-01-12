@@ -1,5 +1,4 @@
 import { initTRPC } from '@trpc/server';
 
-const t = initTRPC.create();
-
-export const { router, procedure, mergeRouters } = t;
+export const { router, procedure, mergeRouters, createCallerFactory } =
+  initTRPC.create();

@@ -1,12 +1,6 @@
 import { appRouter } from '@/server';
-import { httpBatchLink } from '@trpc/client';
+import { createCallerFactory } from '@/server/trpc';
 
-import { getBaseUrl } from '@/lib/utils';
+const createCaller = createCallerFactory(appRouter);
 
-export const serverClient = appRouter.createCaller({
-  links: [
-    httpBatchLink({
-      url: `${getBaseUrl()}/api`,
-    }),
-  ],
-});
+export const server = createCaller({});

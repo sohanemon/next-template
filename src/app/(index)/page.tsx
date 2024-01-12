@@ -3,17 +3,17 @@ import { Suspense } from 'react';
 import { Text as P } from '@/components/ui/text';
 import { Img } from '@/components/image';
 
-import { serverClient } from '../api/[trpc]/trpc';
+import { server } from '../api/[trpc]/trpc';
 import { ThemeToggle } from './_components/theme-toggle';
 
 export const metadata = {
   title: 'Home',
 };
 export default async function IndexPage() {
-  const msg = await serverClient.welcome();
+  const msg = await server.welcome.prompt({ name: 'sohanemon' });
   return (
     <section>
-      <center>{msg.greeting}</center>
+      <center>{msg} </center>
       <P center className="mt-20 text-7xl">
         Update Readme, Site.ts and package.json
       </P>
