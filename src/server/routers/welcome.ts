@@ -1,17 +1,15 @@
 import { z } from 'zod';
 
-import { procedure, router } from '../trpc';
+import { publicProcedure, router } from '../trpc';
 
 const welcomeRouter = router({
-  welcome: router({
-    message: procedure.query(() => {
-      return 'hello';
-    }),
-    prompt: procedure
-      .input(z.object({ name: z.string() }))
-      .query(({ input }) => {
-        return `hello \`${input.name}\``;
-      }),
+  getWelcomeMessage: publicProcedure.query(() => {
+    return 'hello';
   }),
+  promptWelcomeMessage: publicProcedure
+    .input(z.object({ name: z.string() }))
+    .query(({ input }) => {
+      return `hello \`${input.name}\``;
+    }),
 });
 export default welcomeRouter;
