@@ -4,7 +4,7 @@ import { publicProcedure, router } from '../trpc';
 
 const welcomeRouter = router({
   getWelcomeMessage: publicProcedure.query(() => {
-    return 'hello';
+    return 'Update Readme, Site.ts and package.json';
   }),
   promptWelcomeMessage: publicProcedure
     .input(z.object({ name: z.string() }))

@@ -10,12 +10,11 @@ export const metadata = {
   title: 'Home',
 };
 export default async function IndexPage() {
-  const msg = await server.promptWelcomeMessage({ name: 'sohanemon' });
+  const welcomeMessage = await server.getWelcomeMessage();
   return (
     <section>
-      <center>{msg} </center>
-      <P center className="mt-20 text-7xl">
-        Update Readme, Site.ts and package.json
+      <P center className="mt-16 text-7xl">
+        {welcomeMessage}
       </P>
       <Img
         className="my-5 aspect-video rounded-md object-cover center-x"
