@@ -1,30 +1,50 @@
 import { Suspense } from 'react';
 
+import { Input } from '@/components/ui/input';
 import { Text as P } from '@/components/ui/text';
-import { Img } from '@/components/image';
 
+import { server } from '../api/[...trpc]/trpc';
 import { ThemeToggle } from './_components/theme-toggle';
 
 export const metadata = {
   title: 'Home',
 };
 export default async function IndexPage() {
+  const welcomeMessage = await server.getWelcomeMessage();
+  const todos = await server.getTodos();
+  console.log('🛑 ~ IndexPage ~ todos:', todos);
+
+  const handleSubmit = async (formData: FormData) => {
+    'use server';
+    const res = await server.createTodo({
+      name: formData.get('name') as string,
+      description: formData.get('description') as string,
+    });
+    console.log('🛑 ~ handleSubmit ~ res:', res);
+  };
   return (
     <section>
-      <P center className="mt-20 text-7xl">
-        Update Readme, Site.ts and package.json
-      </P>
-      <Img
-        className="my-5 aspect-video rounded-md object-cover center-x"
-        placeholder="shimmer"
-        src={'https://images.unsplash.com/photo-1704722105454-2625cbecde68'}
-        width={700}
-      />
-      <center>{process.env.BASE_URL}</center>
-      <center>{process.env.NEXT_PUBLIC_PUBLISHABLE_KEY}</center>
       <Suspense fallback={<center>Loading ...</center>}>
         <ThemeToggle />
       </Suspense>
+      <P center className="mt-16 text-7xl">
+        {welcomeMessage}
+      </P>
+      <form action={handleSubmit} className="container max-w-2xl space-y-4">
+        <Input name="name" placeholder="name" />
+        <Input name="description" placeholder="description" />
+        <button type="submit">Submit</button>
+      </form>
+      <P center className="mt-16 text-7xl">
+        All Todos
+      </P>
+      <ul className="container my-2 flex max-w-2xl list-decimal flex-col items-center *:mx-auto">
+        {todos.map((todo) => (
+          <li key={todo.id}>
+            {todo.name} - {todo.description}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
