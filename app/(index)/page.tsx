@@ -2,17 +2,17 @@ import { Suspense } from 'react';
 
 import { Img } from '@/components/image';
 
+import { server } from '../api/[...trpc]/trpc';
 import { ThemeToggle } from './_components/theme-toggle';
 
 export const metadata = {
   title: 'Home',
 };
 export default async function IndexPage() {
+  const message = await server.welcome.getWelcomeMessage();
   return (
     <section>
-      <h4 className="mt-20 text-7xl ">
-        Update Readme, Site.ts and package.json
-      </h4>
+      <h4 className="mt-20 text-center text-7xl">{message.slice(0, 6)}</h4>
       <Img
         className="my-5 aspect-video rounded-md object-cover center-x"
         placeholder="shimmer"
