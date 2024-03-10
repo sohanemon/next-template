@@ -1,6 +1,6 @@
-import * as React from 'react';
 import type { ImageProps } from 'next/image';
-import { NextMiddleware } from 'next/server';
+import type { NextMiddleware } from 'next/server';
+import type * as React from 'react';
 
 export type PageProps = Readonly<{
   params: { slug: string };

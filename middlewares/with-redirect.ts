@@ -1,7 +1,11 @@
-import { NextFetchEvent, NextRequest, NextResponse } from 'next/server';
+import {
+  type NextFetchEvent,
+  type NextRequest,
+  NextResponse,
+} from 'next/server';
 
-import type { MiddlewareFactory } from '@/types/index.types';
 import { HOME_ROUTE } from '@/lib/constants';
+import type { MiddlewareFactory } from '@/types/index.types';
 
 import { match } from '.';
 

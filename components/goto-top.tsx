@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
 export function GoToTop() {
   const goToTopRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
-    window.onscroll = function () {
+    window.onscroll = () => {
       if (
         document.body.scrollTop > 700 ||
         document.documentElement.scrollTop > 700
@@ -17,7 +17,7 @@ export function GoToTop() {
     };
 
     return () => {};
-  }, [goToTopRef]);
+  }, []);
 
   function goToTop() {
     window.scrollTo({

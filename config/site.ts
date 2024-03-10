@@ -1,6 +1,6 @@
-import { Metadata, Viewport } from 'next';
+import type { Metadata, Viewport } from 'next';
 
-import { NavType } from '@/types/index.types';
+import type { NavType } from '@/types/index.types';
 
 import packageJson from '../package.json';
 

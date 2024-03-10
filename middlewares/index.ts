@@ -1,4 +1,8 @@
-import { NextMiddleware, NextRequest, NextResponse } from 'next/server';
+import {
+  type NextMiddleware,
+  type NextRequest,
+  NextResponse,
+} from 'next/server';
 
 import type { MiddlewareFactory } from '@/types/index.types';
 

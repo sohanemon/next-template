@@ -1,8 +1,8 @@
-import { HtmlHTMLAttributes } from 'react';
-import Link from 'next/link';
 import { cn } from '@sohanemon/utils';
+import Link from 'next/link';
+import type { HtmlHTMLAttributes } from 'react';
 
-interface CompType {}
+type CompType = {};
 
 export function Brand({
   className,

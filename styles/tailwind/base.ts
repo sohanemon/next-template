@@ -1,6 +1,6 @@
 import plugin from 'tailwindcss/plugin';
 
-export const base = plugin(function ({ addBase, addVariant, matchVariant, e }) {
+export const base = plugin(({ addBase, addVariant, matchVariant, e }) => {
   const states = {
     selected: 'data-selected=true',
     open: 'data-state=open',
@@ -35,9 +35,9 @@ export const base = plugin(function ({ addBase, addVariant, matchVariant, e }) {
       '@apply bg-transparent outline-none w-full': {},
     },
   });
-  Object.entries(states).forEach(([name, definition]) =>
-    addVariant(name, `&[${definition}]`)
-  );
+  for (const [name, definition] of Object.entries(states)) {
+    addVariant(name, `&[${definition}]`);
+  }
   matchVariant('nth', (value) => {
     return `&:nth-child(${value})`;
   });

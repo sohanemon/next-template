@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { cn, isNavActive } from '@sohanemon/utils';
 import { Iconify } from '@sohanemon/utils/components';
 import { useClickOutside } from '@sohanemon/utils/hooks';
 import { AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 import { siteConfig } from '@/config/site';
 import useNavToggle from '@/hooks/nav-toggle';
