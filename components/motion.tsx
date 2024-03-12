@@ -12,7 +12,7 @@ import {
 import {
   type MotionVariantsType,
   motionVariants,
-} from '@/config/variants/motion.variant';
+} from '@/lib/config/variants/motion.variant';
 
 interface MotionProps extends ComponentPropsWithRef<'div'> {
   as?: ElementType;

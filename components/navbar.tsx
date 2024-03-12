@@ -8,11 +8,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
-import { siteConfig } from '@/config/site';
-import useNavToggle from '@/hooks/nav-toggle';
-
 import { Brand } from './brand';
 import { Motion } from './motion';
+import { siteConfig } from '@/lib/config/site';
+import useNavToggle from '@/lib/hooks/nav-toggle';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -1,5 +1,5 @@
-import { stackMiddlewares } from './middlewares';
-import { withRedirect } from './middlewares/with-redirect';
+import { stackMiddlewares } from './lib/middlewares';
+import { withRedirect } from './lib/middlewares/with-redirect';
 
 const middlewares = [withRedirect];
 

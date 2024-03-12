@@ -1,13 +1,13 @@
 import {
+  NextResponse,
   type NextFetchEvent,
   type NextRequest,
-  NextResponse,
 } from 'next/server';
 
-import { HOME_ROUTE } from '@/lib/constants';
 import type { MiddlewareFactory } from '@/types/index.types';
 
 import { match } from '.';
+import { HOME_ROUTE } from '../constants';
 
 export const withRedirect: MiddlewareFactory = (next) => {
   return async (request: NextRequest, _next: NextFetchEvent) => {

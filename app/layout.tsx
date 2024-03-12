@@ -1,8 +1,6 @@
-import { Providers } from '@/context/providers';
-
-import { siteConfig } from '@/config/site';
-import { fonts } from '@/lib/fonts';
-
+import { fonts } from '@/lib/config/fonts';
+import { siteConfig } from '@/lib/config/site';
+import { Providers } from '@/lib/context/providers';
 import '@/styles/custom.css';
 import '@/styles/globals.css';
 
