@@ -1,7 +1,7 @@
 import {
-  NextResponse,
   type NextFetchEvent,
   type NextRequest,
+  NextResponse,
 } from 'next/server';
 
 import type { MiddlewareFactory } from '@/types/index.types';

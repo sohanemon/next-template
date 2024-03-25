@@ -18,7 +18,6 @@ export default async function IndexPage() {
         className="my-5 aspect-video rounded-md object-cover center-x"
         placeholder="shimmer"
         src={'https://images.unsplash.com/photo-1704722105454-2625cbecde68'}
-        width={700}
       />
       Lorem ipsum dolor sit amet consectetur adipisicing elit.
     </section>

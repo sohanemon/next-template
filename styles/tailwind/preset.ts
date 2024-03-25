@@ -1,8 +1,8 @@
 import type { Config } from 'tailwindcss';
 
-import { colors } from '../../lib/config/colors';
 import animations from 'tailwindcss-animate';
 import { createThemes } from 'tw-colors';
+import { colors } from '../../lib/config/colors';
 import { base } from './base';
 import { theme } from './theme';
 import { typography } from './typography';
