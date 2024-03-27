@@ -1,5 +1,6 @@
 import { Img } from '@/components/image';
 import { Motion } from '@/components/motion';
+import { MediaWrapper } from '@sohanemon/utils/components';
 
 export const metadata = {
   title: 'Home',
@@ -20,6 +21,9 @@ export default async function IndexPage() {
         src={'https://images.unsplash.com/photo-1704722105454-2625cbecde68'}
       />
       Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      <MediaWrapper breakpoint='max-lg'>
+        
+      </MediaWrapper>
     </section>
   );
 }

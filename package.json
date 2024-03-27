@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.0",
-    "@sohanemon/utils": "4.0.10",
+    "@sohanemon/utils": "4.0.12",
     "@types/node": "^20.11",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
