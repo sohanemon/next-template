@@ -22,14 +22,14 @@ export default async function IndexPage() {
         src={'https://images.unsplash.com/photo-1704722105454-2625cbecde68'}
       />
       Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      <MediaWrapper breakpoint='lg'>
+      <MediaWrapper breakpoint="lg">
         <Button>Hello</Button>
         <Button variant="outline">outline</Button>
         <Button variant="link">link</Button>
         <Button variant="ghost">ghost</Button>
         <Button variant="secondary">secondary</Button>
         <Button variant="destructive">destructive</Button>
-        <Button href='/image'>lorem</Button>
+        <Button href="/image">lorem</Button>
       </MediaWrapper>
     </section>
   );

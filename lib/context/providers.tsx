@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { AppProgressBar } from "next-nprogress-bar";
-import { ResponsiveIndicator } from "@sohanemon/utils/components";
-import { isSSR } from "../utils";
+import { ResponsiveIndicator } from '@sohanemon/utils/components';
+import { AppProgressBar } from 'next-nprogress-bar';
+import { isSSR } from '../utils';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (

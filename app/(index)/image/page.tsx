@@ -3,9 +3,5 @@ export const metadata = {
 };
 
 export default function ImagePage() {
-  return (
-    <main className="min-h-[600vh] bg-sky-400">
-      ImagePage
-    </main>
-  );
+  return <main className="min-h-[600vh] bg-sky-400">ImagePage</main>;
 }

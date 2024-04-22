@@ -16,20 +16,14 @@
     "module": "ESNext",
     "sourceMap": true,
     /* If your code runs in the DOM: */
-    "lib": [
-      "ESNext",
-      "dom",
-      "dom.iterable"
-    ],
+    "lib": ["ESNext", "dom", "dom.iterable"],
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
     },
     "plugins": [
       {
@@ -45,7 +39,5 @@
     "build/types/**/*.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
