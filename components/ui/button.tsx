@@ -58,7 +58,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         // note: enables power of link & button
         onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
           href && push(href);
-          onClick && onClick(e);
+          onClick?.(e);
         }}
         {...props}
       />

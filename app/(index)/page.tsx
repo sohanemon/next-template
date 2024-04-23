@@ -1,7 +1,7 @@
 import { Img } from '@/components/image';
+import { MediaWrapper } from '@/components/media-wrapper';
 import { Motion } from '@/components/motion';
 import { Button } from '@/components/ui/button';
-import { MediaWrapper } from '@sohanemon/utils/components';
 
 export const metadata = {
   title: 'Home',

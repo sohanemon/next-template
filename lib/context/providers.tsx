@@ -1,8 +1,14 @@
 'use client';
 
-import { ResponsiveIndicator } from '@sohanemon/utils/components';
+const ResponsiveIndicator = dynamic(
+  () =>
+    import('@sohanemon/utils/components').then((m) => m.ResponsiveIndicator),
+  {
+    ssr: false,
+  }
+);
 import { AppProgressBar } from 'next-nprogress-bar';
-import { isSSR } from '../utils';
+import dynamic from 'next/dynamic';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -14,7 +20,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         options={{ showSpinner: false }}
       />
       {children}
-      {isSSR || <ResponsiveIndicator />}
+      <ResponsiveIndicator />
     </>
   );
 }

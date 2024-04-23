@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --experimental-debug-memory-usage",
+    "dev": "next dev --turbo",
     "build": "next build",
     "clean": "rm -rf build",
     "start": "next start",

@@ -20,7 +20,8 @@ const nextConfig = {
     },
   },
   reactStrictMode: true,
-  compiler: { removeConsole: process.env.NODE_ENV === 'production' },
+  compiler:
+    process.env.NODE_ENV === 'production' ? { removeConsole: true } : {},
   typescript: { ignoreBuildErrors: process.env.NODE_ENV === 'production' },
 };
 
