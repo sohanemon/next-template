@@ -1,21 +1,15 @@
-// @ts-nocheck
 'use client';
+import * as React from 'react';
 
 import { type Variants, motion } from 'framer-motion';
-import {
-  type ComponentPropsWithRef,
-  type ElementType,
-  forwardRef,
-  useId,
-} from 'react';
 
 import {
   type MotionVariantsType,
   motionVariants,
 } from '@/lib/config/variants/motion.variant';
 
-interface MotionProps extends ComponentPropsWithRef<'div'> {
-  as?: ElementType;
+interface MotionProps extends React.ComponentPropsWithRef<'div'> {
+  as?: React.ElementType;
   variants?: Variants;
   always?: boolean;
   initial?: MotionVariantsType | MotionVariantsType[];
@@ -23,7 +17,7 @@ interface MotionProps extends ComponentPropsWithRef<'div'> {
   exit?: MotionVariantsType | MotionVariantsType[];
 }
 
-const Component = forwardRef<HTMLDivElement, MotionProps>(
+const Component = React.forwardRef<HTMLDivElement, MotionProps>(
   ({ variants, as = 'div', ...props }, ref) => {
     const Comp = as;
     return <Comp ref={ref} {...props} />;
@@ -33,17 +27,12 @@ const Component = forwardRef<HTMLDivElement, MotionProps>(
 Component.displayName = 'Motion';
 const MotionComponent = motion(Component);
 
-const withVariants =
-  (Comp: typeof MotionComponent): typeof MotionComponent =>
-  // eslint-disable-next-line react/display-name
-  ({
-    ref,
-    transition,
-    always,
-    whileInView,
-    ...props
-  }: ComponentPropsWithRef<typeof MotionComponent>) => {
-    const id = useId();
+const withVariants = (Comp: typeof MotionComponent) => {
+  return React.forwardRef<
+    HTMLElement,
+    React.ComponentPropsWithRef<typeof Comp>
+  >(({ transition, always, whileInView, ...props }, ref) => {
+    const id = React.useId();
     return (
       <Comp
         key={id}
@@ -58,7 +47,8 @@ const withVariants =
         {...props}
       />
     );
-  };
+  });
+};
 
 export const Motion = withVariants(MotionComponent);
 

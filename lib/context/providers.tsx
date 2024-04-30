@@ -1,5 +1,8 @@
 'use client';
 
+import { AppProgressBar } from 'next-nprogress-bar';
+import dynamic from 'next/dynamic';
+
 const ResponsiveIndicator = dynamic(
   () =>
     import('@sohanemon/utils/components').then((m) => m.ResponsiveIndicator),
@@ -7,8 +10,6 @@ const ResponsiveIndicator = dynamic(
     ssr: false,
   }
 );
-import { AppProgressBar } from 'next-nprogress-bar';
-import dynamic from 'next/dynamic';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
