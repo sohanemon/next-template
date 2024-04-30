@@ -1,5 +1,6 @@
 'use client';
 
+import { scrollTo } from '@sohanemon/utils';
 import { useEffect, useRef } from 'react';
 
 export function GoToTop() {
@@ -19,20 +20,13 @@ export function GoToTop() {
     return () => {};
   }, []);
 
-  function goToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }
-
   return (
     <>
       <button
         ref={goToTopRef}
         className="fixed bottom-6 right-6 z-50 hidden size-6 md:bottom-10 md:right-10 md:size-10"
         title="Go To Top"
-        onClick={goToTop}
+        onClick={() => scrollTo({ current: window as any }, 'top')}
       >
         <div className="grid size-full place-content-center rounded-full bg-primary/80 text-foreground shadow-md hover:bg-primary">
           <svg

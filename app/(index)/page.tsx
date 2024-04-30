@@ -9,7 +9,7 @@ export const metadata = {
 
 export default async function IndexPage() {
   return (
-    <section>
+    <section className='min-h-[2000vh]'>
       <div className="my-5 text-3xl ">hello</div>
       <Motion initial="top">
         <h4 className="mt-20 text-7xl ">
