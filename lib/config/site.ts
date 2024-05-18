@@ -20,8 +20,14 @@ export const siteConfig: {
       default: packageJson.name.toUpperCase(),
       template: `%s - ${packageJson.name.toUpperCase()}`,
     },
-
     description: packageJson.description,
+    openGraph: {
+      title: packageJson.name.toUpperCase(),
+      description: packageJson.description,
+    },
+    twitter: {
+      card: 'summary_large_image',
+    },
     icons: {
       icon: favicon,
       shortcut: favicon,
