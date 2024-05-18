@@ -2,13 +2,12 @@
 
 import { AppProgressBar } from 'next-nprogress-bar';
 import dynamic from 'next/dynamic';
+import { colors } from '../config/colors';
 
 const ResponsiveIndicator = dynamic(
   () =>
     import('@sohanemon/utils/components').then((m) => m.ResponsiveIndicator),
-  {
-    ssr: false,
-  }
+  { ssr: false }
 );
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -16,7 +15,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <>
       <AppProgressBar
         shallowRouting
-        color="#07E3F8"
+        color={colors.default.primary}
         height="2px"
         options={{ showSpinner: false }}
       />

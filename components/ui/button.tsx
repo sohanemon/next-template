@@ -2,9 +2,11 @@
 
 import { Slot } from '@radix-ui/react-slot';
 import { cn } from '@sohanemon/utils';
+import { Iconify } from '@sohanemon/utils/components';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { useRouter } from 'next-nprogress-bar';
 import * as React from 'react';
+import { useFormStatus } from 'react-dom';
 
 const buttonVariants = cva(
   'inline-flex gap-1 items-center items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
@@ -40,19 +42,32 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   href?: string;
+  loading?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, variant, size, href, asChild = false, onClick, ...props },
+    {
+      className,
+      variant,
+      size,
+      href,
+      loading,
+      asChild = false,
+      onClick,
+      children,
+      ...props
+    },
     ref
   ) => {
     const Comp = asChild ? Slot : 'button';
 
     const { push } = useRouter();
+    const { pending } = useFormStatus();
 
     return (
       <Comp
+        disabled={loading}
         ref={ref}
         className={cn(buttonVariants({ variant, size, className }))}
         // note: enables power of link & button
@@ -61,7 +76,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           onClick?.(e);
         }}
         {...props}
-      />
+      >
+        {loading || pending ? (
+          <Iconify icon="tabler:loader-2" className="text-lg animate-spin" />
+        ) : (
+          children
+        )}
+      </Comp>
     );
   }
 );
