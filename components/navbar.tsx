@@ -9,10 +9,10 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 import { siteConfig } from '@/lib/config/site';
+import useDisableScroll from '@/lib/hooks/disable-scroll';
 import useNavToggle from '@/lib/hooks/nav-toggle';
 import { Brand } from './brand';
 import { Motion } from './motion';
-import React from 'react';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -82,15 +82,7 @@ const NavContent = () => {
 
 const NavContentMob = ({ setIsMenuOpen }: { setIsMenuOpen: Function }) => {
   const ref = useClickOutside(() => setIsMenuOpen(false));
-  React.useEffect(() => {
-    const handleWheel = (e: WheelEvent) => e.preventDefault();
-
-    window.addEventListener('wheel', handleWheel, { passive: false });
-
-    return () => {
-      window.removeEventListener('wheel', handleWheel);
-    };
-  }, []);
+  useDisableScroll();
 
   return (
     <Motion

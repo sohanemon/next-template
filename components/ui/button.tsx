@@ -62,7 +62,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const Comp = asChild ? Slot : 'button';
 
-    const { push } = useRouter();
+    const { push, back } = useRouter();
     const { pending } = useFormStatus();
 
     return (
@@ -72,7 +72,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(buttonVariants({ variant, size, className }))}
         // note: enables power of link & button
         onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-          href && push(href);
+          href === '-1' ? back() : href && push(href);
           onClick?.(e);
         }}
         {...props}
