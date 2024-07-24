@@ -4,6 +4,7 @@
   "license": "MIT",
   "icon": "favicon.png",
   "version": "1.0.0",
+  "author": "Sohan Emon <sohanemon@outlook.com>",
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
@@ -15,10 +16,10 @@
     "preview": "next build && next start",
     "typecheck": "tsc --noEmit",
     "format": "biome format .",
-    "format:write": "biome format . --write",
-    "prepare": "husky install"
+    "format:write": "biome format . --write"
   },
   "dependencies": {
+    "@preact/signals-react": "^2.1.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@vercel/analytics": "^1.2.2",
     "class-variance-authority": "^0.7.0",
