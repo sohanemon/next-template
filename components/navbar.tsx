@@ -2,7 +2,7 @@
 
 import { cn, isNavActive } from '@sohanemon/utils';
 import { Iconify } from '@sohanemon/utils/components';
-import { useClickOutside } from '@sohanemon/utils/hooks';
+import { useClickOutside, useMediaQuery } from '@sohanemon/utils/hooks';
 import { AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -17,10 +17,11 @@ import { Motion } from './motion';
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { hidden, leaved } = useNavToggle();
+  const sm = useMediaQuery('sm');
 
   return (
     <Motion
-      animate={hidden ? 'top' : 'visible'}
+      animate={sm && hidden ? 'top' : 'visible'}
       transition={{ delay: 0.1, duration: 0.5 }}
       className={cn('sticky inset-x-0 top-0 z-40 bg-background', {
         'shadow-lg shadow-foreground/10  bg-background/50 backdrop-blur-md':

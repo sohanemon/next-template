@@ -4,8 +4,6 @@ import type { NavType } from '@/types/index.types';
 
 import packageJson from '../../package.json';
 
-type SiteConfig = typeof siteConfig;
-
 const favicon = packageJson.icon;
 
 export const siteConfig: {
