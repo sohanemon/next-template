@@ -26,7 +26,8 @@
     "next": "^14.2.2",
     "next-nprogress-bar": "^2.3.11",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.1",
