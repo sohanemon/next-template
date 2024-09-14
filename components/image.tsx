@@ -4,7 +4,6 @@ import type React from 'react';
 
 import { shimmer, svgToBase64 } from '@/lib/utils';
 import type { ImgProps } from '@/types/index.types';
-import { getPlaceholderImage } from '@/lib/action/placeholder';
 
 function Image({ src, width, height, alt, ...props }: ImgProps) {
   return (
@@ -42,6 +41,8 @@ export const Img: React.FC<ImgProps> = ({ placeholder, ...props }) => {
 };
 
 const BlurImg = async (props: ImgProps) => {
-  const blurData = await getPlaceholderImage(props.src);
+  const blurData = await import('@/lib/action/placeholder').then((f) =>
+    f.getPlaceholderImage(props.src),
+  );
   return <Image placeholder="blur" blurDataURL={blurData} {...props} />;
 };

@@ -39,7 +39,7 @@ export const siteConfig: {
     ],
   },
   nav: [
-    { title: 'home', href: '/home' },
+    { title: 'home', href: '/' },
     { title: 'images', href: '/images' },
   ],
 };

@@ -10,6 +10,9 @@ const defaultVariants = {
   'collapsed-y': { scaleY: 0, transformOrigin: 'top' },
   hidden: { opacity: 0 },
   visible: { x: 0, y: 0, opacity: 1, scale: 1, scaleX: 1, scaleY: 1 },
+  spring: {
+    transition: { type: 'spring', stiffness: 500, damping: 30 },
+  },
 } satisfies Variants;
 
 const fullPosition = {
