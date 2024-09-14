@@ -24,7 +24,7 @@ export function GoToTop() {
     <>
       <button
         ref={goToTopRef}
-        className="fixed bottom-6 right-6 z-50 hidden size-6 md:bottom-10 md:right-10 md:size-10"
+        className="fixed right-6 bottom-6 z-50 hidden size-6 md:right-10 md:bottom-10 md:size-10"
         title="Go To Top"
         onClick={() => scrollTo({ current: window as any }, 'top')}
       >

@@ -5,9 +5,9 @@ export const metadata = {
 
 export default function IndexPage() {
   return (
-    <section className="min-h-[2000vh] container">
+    <section className="container min-h-[2000vh]">
       <Motion initial="bottom">
-        <h4 className="mt-20 text-7xl text-center">
+        <h4 className="mt-20 text-center text-7xl">
           Update Readme, Site.ts and package.json
         </h4>
       </Motion>

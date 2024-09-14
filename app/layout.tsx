@@ -3,9 +3,9 @@ import { siteConfig } from '@/lib/config/site';
 import { Providers } from '@/lib/context/providers';
 import '@/styles/custom.css';
 import '@/styles/globals.css';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 import { cn } from '@sohanemon/utils';
-import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = siteConfig.metadata;
 export const viewport = siteConfig.viewport;
@@ -16,12 +16,12 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html suppressHydrationWarning className="scroll-pt-16 default" lang="en">
+    <html suppressHydrationWarning className="default scroll-pt-16" lang="en">
       <head />
       <body className={cn('flex min-h-screen flex-col font-sans', fonts)}>
         <Providers>{children}</Providers>
-        <Analytics />
       </body>
+      <GoogleAnalytics gaId={process.env.GA_ID!} />
     </html>
   );
 }

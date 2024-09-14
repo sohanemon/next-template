@@ -21,7 +21,7 @@ const Component = React.forwardRef<HTMLDivElement, MotionProps>(
   ({ variants, as = 'div', ...props }, ref) => {
     const Comp = as;
     return <Comp ref={ref} {...props} />;
-  }
+  },
 );
 
 Component.displayName = 'Motion';

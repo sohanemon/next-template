@@ -25,7 +25,7 @@ export function convertToNormalCase(inputString: string) {
   const string = splittedString || inputString;
   const words = string.replace(/([a-z])([A-Z])/g, '$1 $2').split(/_|\s+/);
   const capitalizedWords = words.map(
-    (word) => word.charAt(0).toUpperCase() + word.slice(1)
+    (word) => word.charAt(0).toUpperCase() + word.slice(1),
   );
   return capitalizedWords.join(' ');
 }

@@ -24,7 +24,7 @@ export function Navbar() {
       animate={sm && hidden ? 'top' : 'visible'}
       transition={{ delay: 0.1, duration: 0.5 }}
       className={cn('sticky inset-x-0 top-0 z-40 bg-background', {
-        'shadow-lg shadow-foreground/10  bg-background/50 backdrop-blur-md':
+        'bg-background/50 shadow-foreground/10 shadow-lg backdrop-blur-md':
           leaved,
       })}
     >
@@ -70,7 +70,7 @@ const NavContent = () => {
             {isNavActive(_.href, path) && (
               <Motion
                 as="span"
-                className="absolute inset-0 -z-10 rounded-md bg-primary/10 "
+                className="-z-10 absolute inset-0 rounded-md bg-primary/10 "
                 layoutId="nav-bg"
               />
             )}

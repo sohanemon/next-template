@@ -6,5 +6,5 @@ export const MediaWrapper = dynamic(
   () => import('@sohanemon/utils/components').then((m) => m.MediaWrapper),
   {
     ssr: false,
-  }
+  },
 );

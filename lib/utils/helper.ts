@@ -3,7 +3,7 @@ export const sleep = (time = 1000) =>
 
 export function debounce<T extends (...args: any[]) => void>(
   func: T,
-  wait = 1000
+  wait = 1000,
 ): (...args: Parameters<T>) => void {
   let timeout: ReturnType<typeof setTimeout> | undefined;
   return function (this: ThisParameterType<T>, ...args: Parameters<T>): void {
@@ -14,7 +14,7 @@ export function debounce<T extends (...args: any[]) => void>(
 
 export function throttle<T extends (...args: any[]) => void>(
   func: T,
-  wait = 1000
+  wait = 1000,
 ): (...args: Parameters<T>) => void {
   let inThrottle = false;
   return function (this: ThisParameterType<T>, ...args: Parameters<T>): void {

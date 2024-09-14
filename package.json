@@ -7,20 +7,22 @@
   "author": "Sohan Emon <sohanemon@outlook.com>",
   "private": true,
   "scripts": {
+    "clean": "rm -rf build",
     "dev": "next dev --turbo",
     "build": "next build",
-    "clean": "rm -rf build",
-    "start": "next start",
-    "lint": "biome lint .",
-    "lint:fix": "biome lint --apply-unsafe .",
     "preview": "next build && next start",
-    "typecheck": "tsc --noEmit",
+    "start": "next start",
+    "check": "biome check .",
+    "fix": "biome check --write .",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write --unsafe .",
     "format": "biome format .",
-    "format:write": "biome format . --write"
+    "format:write": "biome format . --write",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@next/third-parties": "^14.2.11",
     "@radix-ui/react-slot": "^1.0.2",
-    "@vercel/analytics": "^1.2.2",
     "class-variance-authority": "^0.7.0",
     "framer-motion": "^11.1.7",
     "next": "^14.2.2",
@@ -30,7 +32,7 @@
     "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.7.1",
+    "@biomejs/biome": "^1.8.1",
     "@sohanemon/utils": "^4.0.14",
     "@types/node": "^20.12.7",
     "@types/react": "^18.2.79",

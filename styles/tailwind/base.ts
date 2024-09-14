@@ -44,7 +44,7 @@ export const base = plugin(({ addBase, addVariant, matchVariant, e }) => {
   addVariant('keyboard', (({ modifySelectors, separator }: any) => {
     modifySelectors(({ className }: { className: string }) => {
       return `body[data-keyboard='open'] .${e(
-        `keyboard${separator}${className}`
+        `keyboard${separator}${className}`,
       )}`;
     });
   }) as any);

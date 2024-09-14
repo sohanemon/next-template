@@ -9,7 +9,7 @@ import * as React from 'react';
 import { useFormStatus } from 'react-dom';
 
 const buttonVariants = cva(
-  'inline-flex gap-1 items-center items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center items-center justify-center gap-1 whitespace-nowrap rounded-md font-medium text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
@@ -34,7 +34,7 @@ const buttonVariants = cva(
       variant: 'default',
       size: 'default',
     },
-  }
+  },
 );
 
 export interface ButtonProps
@@ -58,7 +58,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
     const Comp = asChild ? Slot : 'button';
 
@@ -78,13 +78,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {loading || pending ? (
-          <Iconify icon="tabler:loader-2" className="text-lg animate-spin" />
+          <Iconify icon="tabler:loader-2" className="animate-spin text-lg" />
         ) : (
           children
         )}
       </Comp>
     );
-  }
+  },
 );
 Button.displayName = 'Button';
 
