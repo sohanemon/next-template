@@ -3,8 +3,8 @@ import type { VariantLabels, Variants } from 'framer-motion';
 const defaultVariants = {
   left: { x: -300, opacity: 0 },
   right: { x: 300, opacity: 0 },
-  top: { y: -300, opacity: 0 },
-  bottom: { y: 100, opacity: 0 },
+  top: { y: -100, opacity: 0 },
+  bottom: { y: 100, opacity: 0, scale: 0.9 },
   collapsed: { opacity: 0, scale: 0 },
   'collapsed-x': { scaleX: 0, transformOrigin: 'left' },
   'collapsed-y': { scaleY: 0, transformOrigin: 'top' },

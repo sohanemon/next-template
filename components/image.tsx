@@ -1,44 +1,37 @@
-/* eslint-disable jsx-a11y/alt-text */
-
 import { cleanSrc } from '@sohanemon/utils';
 import NextImageComponent from 'next/image';
 import type React from 'react';
 
 import { shimmer, svgToBase64 } from '@/lib/utils';
 import type { ImgProps } from '@/types/index.types';
+import { getPlaceholderImage } from '@/lib/action/placeholder';
 
-function Image({
-  src,
-  width,
-  height,
-  alt,
-  blurDataURL,
-  placeholder,
-  sizes,
-  ...props
-}: ImgProps) {
+function Image({ src, width, height, alt, ...props }: ImgProps) {
   return (
     <NextImageComponent
-      alt={alt || src.substring(src.lastIndexOf('/') + 1) || 'Picture Element'}
+      width={width || 500}
       height={height || width || 300}
-      placeholder={placeholder as any}
-      src={cleanSrc(src as string)}
-      width={width || 300}
-      sizes={
-        sizes || '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+      alt={
+        alt ||
+        src.substring(src.lastIndexOf('/') + 1).slice(0, 20) ||
+        'Picture Element'
       }
-      {...props}
+      src={cleanSrc(src as string)}
+      draggable="false"
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      {...(props as any)}
     />
   );
 }
 
 export const Img: React.FC<ImgProps> = ({ placeholder, ...props }) => {
   const imgComp: Record<string, React.ReactNode> = {
+    blur: <BlurImg {...props} />,
     shimmer: (
       <Image
         {...props}
         placeholder={`data:image/svg+xml;base64,${svgToBase64(
-          shimmer(props.width || 300, props.height || props.width || 300)
+          shimmer(500, 300),
         )}`}
       />
     ),
@@ -46,4 +39,9 @@ export const Img: React.FC<ImgProps> = ({ placeholder, ...props }) => {
   return (
     imgComp[placeholder!] || <Image placeholder={placeholder} {...props} />
   );
+};
+
+const BlurImg = async (props: ImgProps) => {
+  const blurData = await getPlaceholderImage(props.src);
+  return <Image placeholder="blur" blurDataURL={blurData} {...props} />;
 };
