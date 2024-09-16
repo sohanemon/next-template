@@ -1,11 +1,7 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
   "files": {
-    "ignore": [
-      "**/node_modules/**",
-      "**/.next/**",
-      "**/build/**"
-    ]
+    "ignore": ["**/node_modules/**", "**/.next/**", "**/build/**"]
   },
   "organizeImports": {
     "enabled": true
@@ -51,15 +47,8 @@
           "fix": "safe",
           "level": "warn",
           "options": {
-            "attributes": [
-              "classList"
-            ],
-            "functions": [
-              "clsx",
-              "cva",
-              "cn",
-              "tw"
-            ]
+            "attributes": ["classList"],
+            "functions": ["clsx", "cva", "cn", "tw"]
           }
         }
       }
