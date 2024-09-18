@@ -3,7 +3,7 @@ import { siteConfig } from '@/lib/config/site';
 import { Providers } from '@/lib/context/providers';
 import '@/styles/custom.css';
 import '@/styles/globals.css';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
 import { cn } from '@sohanemon/utils';
 
@@ -22,6 +22,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Providers>{children}</Providers>
       </body>
       <GoogleAnalytics gaId={process.env.GA_ID!} />
+      <GoogleTagManager gtmId={process.env.GTM_ID!} />
     </html>
   );
 }

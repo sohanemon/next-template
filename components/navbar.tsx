@@ -21,33 +21,22 @@ export function Navbar() {
 
   return (
     <Motion
-      animate={sm && hidden ? 'top' : 'visible'}
-      transition={{ delay: 0.1, duration: 0.5 }}
-      className={cn('sticky inset-x-0 top-0 z-40 bg-background', {
-        'bg-background/50 shadow-foreground/10 shadow-lg backdrop-blur-md':
-          leaved,
+      animate={!sm && hidden ? 'top' : 'visible'}
+      transition={{ delay: 0.1, duration: 0.5, type: 'just' }}
+      className={cn('sticky inset-x-0 top-0 z-40 bg-card', {
+        'bg-card/50 shadow-foreground/10 shadow-lg backdrop-blur-md': leaved,
       })}
     >
       <nav className="container flex items-center justify-between py-4">
         <Brand />
         <NavContent />
-        {!isMenuOpen ? (
-          <Iconify
-            className="cursor-pointer text-foreground lg:hidden"
-            icon="lucide:menu"
-            onClick={() => setIsMenuOpen(true)}
-          />
-        ) : (
-          <Iconify
-            className="cursor-pointer text-foreground lg:hidden"
-            icon="lucide:x"
-            onClick={() => setIsMenuOpen(false)}
-          />
-        )}
+        <Iconify
+          className="mr-1 cursor-pointer text-2xl text-foreground lg:hidden"
+          icon={isMenuOpen ? 'lucide:x' : 'lucide:menu'}
+          onClick={() => setIsMenuOpen((p) => !p)}
+        />
       </nav>
-      <AnimatePresence>
-        {isMenuOpen && <NavContentMob setIsMenuOpen={setIsMenuOpen} />}
-      </AnimatePresence>
+      {isMenuOpen && <NavContentMob setIsMenuOpen={setIsMenuOpen} />}
     </Motion>
   );
 }
@@ -70,7 +59,7 @@ const NavContent = () => {
             {isNavActive(_.href, path) && (
               <Motion
                 as="span"
-                className="-z-10 absolute inset-0 rounded-md bg-primary/10 "
+                className="-z-10 absolute inset-x-0 bottom-0 h-px rounded-md bg-primary/80 "
                 layoutId="nav-bg"
               />
             )}
@@ -82,25 +71,29 @@ const NavContent = () => {
 };
 
 const NavContentMob = ({ setIsMenuOpen }: { setIsMenuOpen: Function }) => {
-  const ref = useClickOutside(() => setIsMenuOpen(false));
+  const ref = useClickOutside(() =>
+    setTimeout(() => setIsMenuOpen(false), 200),
+  );
   useDisableScroll();
 
   return (
     <Motion
-      key={'header'}
-      ref={ref}
-      animate="visible"
-      className="absolute inset-x-0 mx-2 flex flex-col items-start gap-4 rounded-xl bg-background p-5 shadow-xl lg:hidden"
-      exit={'left'}
-      initial="top"
+      className={cn(
+        'absolute inset-x-0 flex flex-col items-start gap-4 rounded-b-xl bg-background p-5 shadow-xl lg:hidden',
+        'bg-card/90 shadow-foreground/10 shadow-lg backdrop-blur-xl',
+      )}
+      asChild
+      initial="collapsed-y"
     >
-      {siteConfig.nav.map((_) => (
-        <button key={_.title} onClick={() => setIsMenuOpen(false)}>
-          <span className="capitalize hover:text-primary/50">
-            <Link href={_.href}>{_.title}</Link>
-          </span>
-        </button>
-      ))}
+      <div ref={ref}>
+        {siteConfig.nav.map((_) => (
+          <button key={_.title} onClick={() => setIsMenuOpen(false)}>
+            <span className="capitalize hover:text-primary/50">
+              <Link href={_.href}>{_.title}</Link>
+            </span>
+          </button>
+        ))}
+      </div>
     </Motion>
   );
 };
