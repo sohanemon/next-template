@@ -15,7 +15,6 @@ export const base = plugin(({ addBase, addVariant, matchVariant, e }) => {
     },
     '::-webkit-scrollbar-thumb:hover': { '@apply bg-primary/70': {} },
     '::-webkit-scrollbar-track': {
-      borderRadius: '10px',
       '@apply bg-primary/20': {},
     },
     '*': { '@apply border-border min-w-0': {} },

@@ -1,9 +1,10 @@
-import { useAnimate, useInView } from 'framer-motion';
+import { type AnimationScope, useAnimate, useInView } from 'framer-motion';
 import * as React from 'react';
 
 type AnimateCallback = (args: {
   animate: ReturnType<typeof useAnimate>[1];
   inView: boolean;
+  container: AnimationScope<any>['current'];
 }) => Promise<void> | void;
 
 export const useAnimationEffect = (callback: AnimateCallback) => {
@@ -12,7 +13,7 @@ export const useAnimationEffect = (callback: AnimateCallback) => {
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: Reduce extra render
   React.useEffect(() => {
-    callback({ inView: isInView, animate });
+    callback({ inView: isInView, animate, container: scope.current });
   }, [isInView]);
 
   return scope;
