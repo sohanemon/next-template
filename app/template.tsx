@@ -9,6 +9,7 @@ export default function RootTemplate({ children }: RootTemplateProps) {
     <>
       <Motion
         initial="hidden"
+        style={{ willChange: 'opacity' }}
         transition={{
           duration: 0.4,
           when: 'beforeChildren',

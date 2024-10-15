@@ -40,6 +40,9 @@ export const base = plugin(({ addBase, addVariant, matchVariant, e }) => {
   matchVariant('nth', (value) => {
     return `&:nth-child(${value})`;
   });
+  matchVariant('nth-reverse', (value) => {
+    return `&:nth-last-child(${value})`;
+  });
   addVariant('keyboard', (({ modifySelectors, separator }: any) => {
     modifySelectors(({ className }: { className: string }) => {
       return `body[data-keyboard='open'] .${e(
