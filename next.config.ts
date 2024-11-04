@@ -1,7 +1,6 @@
-// @ts-check
+import type { NextConfig } from 'next';
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -26,7 +25,8 @@ const nextConfig = {
   reactStrictMode: true,
   compiler:
     process.env.NODE_ENV === 'production' ? { removeConsole: true } : {},
-  typescript: { ignoreBuildErrors: process.env.NODE_ENV === 'production' },
+  typescript:
+    process.env.NODE_ENV === 'production' ? { ignoreBuildErrors: true } : {},
 };
 
 export default nextConfig;

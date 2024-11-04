@@ -1,6 +1,6 @@
 # next-template
 
-A Next.js 14 app built with Tailwind CSS.
+A Next.js 15 app built with Tailwind CSS.
 
 ## Usage (run locally)
 
@@ -12,9 +12,11 @@ npm install
 
 ```bash
 npm run dev
+# or
+deno task dev
 ```
 
-> required `nodejs` installed
+> required `nodejs` or `deno` installed
 
 ## Commit/Push
 
@@ -40,11 +42,11 @@ npx sohanemon next my-app-name --pnpm
 
 ## Features
 
-- Next.js 14 App Directory
-- Animated with `framer-motion`
+- Next.js 15 App Directory
 - Radix UI Primitives
 - Tailwind CSS
-- Prettier
+- BiomeJS for linting and formatting
+- Animated with `framer-motion`
 - Tailwind CSS class sorting, merging and linting.
 
 > More more feature choose the `feature-full` branch. Including `Zustand`,`React-hook-form`,`next-themes`,`lucide-react` and many more
