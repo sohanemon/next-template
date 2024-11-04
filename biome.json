@@ -40,6 +40,7 @@
       "suspicious": {
         "noExplicitAny": "off",
         "noCommentText": "error",
+        "noArrayIndexKey": "info",
         "noDuplicateJsxProps": "error"
       },
       "nursery": {

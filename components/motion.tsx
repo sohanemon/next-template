@@ -1,7 +1,7 @@
 'use client';
 import * as React from 'react';
 
-import { type Variants, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import {
   type MotionVariantsType,
@@ -10,18 +10,17 @@ import {
 import { Slot } from '@radix-ui/react-slot';
 import { useMediaQuery } from '@sohanemon/utils/hooks';
 
-interface MotionProps extends React.ComponentPropsWithRef<'div'> {
+type MotionProps = React.ComponentProps<typeof motion.div> & {
   as?: React.ElementType;
   asChild?: boolean;
-  variants?: Variants;
   always?: boolean;
   initial?: MotionVariantsType | MotionVariantsType[];
   animate?: MotionVariantsType | MotionVariantsType[];
   exit?: MotionVariantsType | MotionVariantsType[];
-}
+};
 
 const Component = React.forwardRef<HTMLDivElement, MotionProps>(
-  ({ variants, as = 'div', asChild, ...props }, ref) => {
+  ({ as = 'div', asChild, ...props }, ref) => {
     const Comp = asChild ? Slot : as;
     return <Comp ref={ref} {...props} />;
   },
@@ -41,6 +40,7 @@ const withVariants = (Comp: typeof MotionComponent) => {
     transition,
     always,
     whileInView,
+    variants,
     breakpoint = 'lg',
     mediaProps,
     delay,
@@ -51,7 +51,7 @@ const withVariants = (Comp: typeof MotionComponent) => {
     const sm = !useMediaQuery(breakpoint);
 
     const baseProps = {
-      variants: motionVariants,
+      variants: variants || motionVariants,
       viewport: { once: !always },
       whileInView:
         (sm && mediaProps?.whileInView) ||
@@ -76,6 +76,6 @@ const withVariants = (Comp: typeof MotionComponent) => {
   };
 };
 
+export const MDiv = motion.div;
+export const RawMotion = MotionComponent;
 export const Motion = withVariants(MotionComponent);
-
-export const MotionDiv = motion.div;

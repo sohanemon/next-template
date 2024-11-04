@@ -3,7 +3,7 @@ import type { NextMiddleware } from 'next/server';
 import type * as React from 'react';
 
 export type PageProps = Readonly<{
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
   searchParams: { [key: string]: string | string[] | undefined };
 }>;
 
