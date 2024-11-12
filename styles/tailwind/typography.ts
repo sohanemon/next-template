@@ -1,6 +1,6 @@
 import plugin from 'tailwindcss/plugin';
 
-const fontVariables = ['--font-sans', '--font-mono'];
+const fontVariables = ['--font-sans'];
 
 export const typography = plugin(
   ({ addUtilities }) => {

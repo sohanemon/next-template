@@ -3,7 +3,6 @@
 import { cn, isNavActive } from '@sohanemon/utils';
 import { Iconify } from '@sohanemon/utils/components';
 import { useClickOutside, useMediaQuery } from '@sohanemon/utils/hooks';
-import { AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';

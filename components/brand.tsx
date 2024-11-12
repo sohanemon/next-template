@@ -1,16 +1,15 @@
 import { cn } from '@sohanemon/utils';
 import Link from 'next/link';
 import type { HtmlHTMLAttributes } from 'react';
-
-type CompType = {};
+import { Img } from './image';
 
 export function Brand({
   className,
   ...props
-}: HtmlHTMLAttributes<HTMLAnchorElement> & CompType) {
+}: HtmlHTMLAttributes<HTMLAnchorElement>) {
   return (
     <Link href={'/'} {...props} className={cn('', className)}>
-      LOGO
+      <Img width={200} height={20} src="favicon.png" />
     </Link>
   );
 }
