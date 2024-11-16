@@ -9,6 +9,7 @@ export default function RootTemplate({ children }: RootTemplateProps) {
     <>
       <Motion
         initial="hidden"
+        className="flex flex-1 flex-col"
         style={{ willChange: 'opacity' }}
         transition={{
           duration: 0.4,

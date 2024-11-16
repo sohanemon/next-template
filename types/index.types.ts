@@ -4,7 +4,7 @@ import type * as React from 'react';
 
 export type PageProps = Readonly<{
   params: Promise<{ slug: string }>;
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }>;
 
 export type MiddlewareFactory = (middleware: NextMiddleware) => NextMiddleware;

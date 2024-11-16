@@ -3,6 +3,11 @@ html > body[style] {
   margin-right: 0 !important;
 }
 
+/* fix drop-down hides sticky navigation-bar*/
+html > body[data-scroll-locked] {
+  overflow: clip !important;
+}
+
 a {
   cursor: pointer;
 }
