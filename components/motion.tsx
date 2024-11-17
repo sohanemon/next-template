@@ -1,7 +1,7 @@
 'use client';
 import * as React from 'react';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import {
   type MotionVariantsType,
@@ -34,7 +34,7 @@ type MotionQuery = {
   mediaProps?: React.ComponentProps<typeof MotionComponent>;
   delay?: number;
   duration?: number;
-};
+} & React.ComponentProps<'div'>;
 const withVariants = (Comp: typeof MotionComponent) => {
   return ({
     transition,
@@ -67,7 +67,6 @@ const withVariants = (Comp: typeof MotionComponent) => {
     };
     return (
       <Comp
-        suppressHydrationWarning
         key={id}
         {...baseProps}
         {...(sm ? { ...props, ...mediaProps } : props)}

@@ -1,4 +1,4 @@
-import { type AnimationScope, useAnimate, useInView } from 'framer-motion';
+import { type AnimationScope, useAnimate, useInView } from 'motion/react';
 import * as React from 'react';
 
 type AnimateCallback = (args: {

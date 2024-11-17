@@ -1,4 +1,4 @@
-import type { VariantLabels, Variants } from 'framer-motion';
+import type { VariantLabels, Variants } from 'motion/react';
 
 const defaultVariants = {
   left: { x: -300, opacity: 0 },

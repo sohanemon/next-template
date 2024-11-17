@@ -46,7 +46,7 @@ npx sohanemon next my-app-name --pnpm
 - Radix UI Primitives
 - Tailwind CSS
 - BiomeJS for linting and formatting
-- Animated with `framer-motion`
+- Animated with  `motion`, formerly `framer-motion`
 - Tailwind CSS class sorting, merging and linting.
 
 > More more feature choose the `feature-full` branch. Including `Zustand`,`React-hook-form`,`next-themes`,`lucide-react` and many more
