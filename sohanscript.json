@@ -2,6 +2,6 @@
   "$schema": "https://sohanjs.web.app/draft/next/schema.json",
   "cwd": "$NVIM_CWD",
   "commands": {
-    "dev": "next dev"
+    "dev": "bun run dev"
   }
 }
