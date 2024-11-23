@@ -1,3 +1,5 @@
+export const isSSR = typeof window === 'undefined';
+
 export const sleep = (time = 1000) =>
   new Promise((resolve) => setTimeout(resolve, time));
 
@@ -27,3 +29,15 @@ export function throttle<T extends (...args: any[]) => void>(
     }
   };
 }
+
+export const getCookieStore = async () => {
+  if (isSSR) return (await import('next/headers')).cookies();
+
+  const mod = await import('@sohanemon/utils/core');
+  return {
+    get: mod.getClientSideCookie,
+    set: mod.setClientSideCookie,
+    has: mod.hasClientSideCookie,
+    delete: mod.deleteClientSideCookie,
+  };
+};

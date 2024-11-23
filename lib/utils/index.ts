@@ -1,4 +1,4 @@
-export const isSSR = typeof window === 'undefined';
+import { isSSR } from './helper';
 
 export const svgToBase64 = (str: string) =>
   isSSR ? Buffer.from(str).toString('base64') : window.btoa(str);
