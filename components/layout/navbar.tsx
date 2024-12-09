@@ -10,8 +10,8 @@ import { useState } from 'react';
 import { siteConfig } from '@/lib/config/site';
 import useDisableScroll from '@/lib/hooks/disable-scroll';
 import useNavToggle from '@/lib/hooks/nav-toggle';
-import { Brand } from './brand';
-import { Motion } from './motion';
+import { Brand } from '../brand';
+import { Motion } from '../motion';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

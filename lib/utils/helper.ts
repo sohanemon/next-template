@@ -36,7 +36,8 @@ export const getCookieStore = async () => {
   const mod = await import('@sohanemon/utils/core');
   return {
     get: mod.getClientSideCookie,
-    set: mod.setClientSideCookie,
+    set: (name: string, value: string) =>
+      mod.setClientSideCookie(name, value, 30, '/'),
     has: mod.hasClientSideCookie,
     delete: mod.deleteClientSideCookie,
   };

@@ -23,7 +23,7 @@ export const shimmer = (w: number | `${number}`, h: number | `${number}`) => {
 export function convertToNormalCase(inputString: string) {
   const splittedString = inputString.split('.').pop();
   const string = splittedString || inputString;
-  const words = string.replace(/([a-z])([A-Z])/g, '$1 $2').split(/_|\s+/);
+  const words = string.replace(/([a-z])([A-Z])/g, '$1 $2').split(/[-_|\s]+/);
   const capitalizedWords = words.map(
     (word) => word.charAt(0).toUpperCase() + word.slice(1),
   );

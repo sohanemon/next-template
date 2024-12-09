@@ -7,9 +7,10 @@ import { type VariantProps, cva } from 'class-variance-authority';
 import { useRouter } from 'next-nprogress-bar';
 import * as React from 'react';
 import { useFormStatus } from 'react-dom';
+import { withTooltip } from './tooltip';
 
 const buttonVariants = cva(
-  'inline-flex items-center items-center justify-center gap-1 whitespace-nowrap rounded-md font-medium text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center items-center justify-center gap-1 whitespace-nowrap rounded-md font-medium text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
@@ -45,7 +46,7 @@ export interface ButtonProps
   loading?: boolean;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const _Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       className,
@@ -86,6 +87,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   },
 );
-Button.displayName = 'Button';
+
+_Button.displayName = 'Button';
+const Button = withTooltip(_Button);
 
 export { Button, buttonVariants };
