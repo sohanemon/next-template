@@ -1,6 +1,6 @@
 'use client';
 
-import { cn, isNavActive } from '@sohanemon/utils';
+import { cn, isLinkActive } from '@sohanemon/utils';
 import { Iconify } from '@sohanemon/utils/components';
 import { useClickOutside, useMediaQuery } from '@sohanemon/utils/hooks';
 import Link from 'next/link';
@@ -49,13 +49,13 @@ const NavContent = () => {
           <li
             key={_.title}
             className={cn('relative', {
-              'text-primary': isNavActive(_.href, path),
+              'text-primary': isLinkActive({ path, currentPath: _.href }),
             })}
           >
             <h3 className="px-3 capitalize">
               <Link href={_.href}>{_.title}</Link>
             </h3>
-            {isNavActive(_.href, path) && (
+            {isLinkActive({ path, currentPath: _.href }) && (
               <Motion
                 as="span"
                 className="-z-10 absolute inset-x-0 bottom-0 h-px rounded-md bg-primary/80 "
