@@ -9,7 +9,7 @@ export function Brand({
 }: HtmlHTMLAttributes<HTMLAnchorElement>) {
   return (
     <Link href={'/'} {...props} className={cn('', className)}>
-      <Img width={200} height={20} src="favicon.png" />
+      <Img width={40} height={40} src="/favicon.png" />
     </Link>
   );
 }

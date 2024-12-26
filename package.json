@@ -1,6 +1,6 @@
 {
-  "name": "next.js-minimal",
-  "description": "Minimal Next.js starter with Tailwind CSS",
+  "name": "next-js",
+  "description": "Minimal Next.js app with Tailwind CSS and Typescript",
   "license": "MIT",
   "icon": "favicon.png",
   "version": "1.0.0",
