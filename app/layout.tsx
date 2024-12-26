@@ -18,7 +18,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html suppressHydrationWarning className="default scroll-pt-16" lang="en">
       <head />
-      <body className={cn('flex min-h-screen flex-col font-sans', fonts)}>
+      <body
+        suppressHydrationWarning
+        className={cn('flex min-h-screen flex-col font-sans', fonts)}
+      >
         <Providers>{children}</Providers>
       </body>
       <GoogleAnalytics gaId={process.env.GA_ID!} />
