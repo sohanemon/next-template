@@ -15,7 +15,7 @@ export const base = plugin(({ addBase, addVariant, matchVariant, e }) => {
     },
     '::-webkit-scrollbar-thumb:hover': { '@apply bg-primary/70': {} },
     '::-webkit-scrollbar-track': {
-      '@apply bg-primary/20': {},
+      '@apply bg-primary/0': {},
     },
     '*': { '@apply border-border min-w-0': {} },
   });

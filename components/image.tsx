@@ -1,8 +1,8 @@
-import { cleanSrc } from '@sohanemon/utils';
+import { cleanSrc, svgToBase64 } from '@sohanemon/utils';
 import NextImageComponent from 'next/image';
 import type React from 'react';
 
-import { shimmer, svgToBase64 } from '@/lib/utils';
+import { shimmer } from '@/lib/utils';
 import type { ImgProps } from '@/types/index.types';
 
 function Image({ src, width, height, alt, ...props }: ImgProps) {
