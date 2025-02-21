@@ -3,6 +3,6 @@
   "packageManager": "bun --bun",
   "cwd": "$NVIM_CWD",
   "commands": {
-    "dev": "npm run dev"
+    "dev": "command npm run dev"
   }
 }

@@ -1,6 +1,6 @@
 import plugin from 'tailwindcss/plugin';
 
-export const utilities = plugin(({ addUtilities }) => {
+export const utilities = plugin(({ addUtilities, matchUtilities }) => {
   addUtilities({
     '.scrollbar-hidden::-webkit-scrollbar': { display: 'none' },
     '.scrollbar-hidden': { msOverflowStyle: 'none', scrollbarWidth: 'none' },
@@ -15,5 +15,13 @@ export const utilities = plugin(({ addUtilities }) => {
     '.center-position-y': { '@apply top-[50%] -translate-y-1/2': {} },
     '.link': { '@apply text-primary underline-offset-2 hover:underline': {} },
     '.container-mini': { '@apply mx-auto max-w-3xl px-2 w-full': {} },
+  });
+  matchUtilities({
+    'grid-auto-fill': (value) => ({
+      gridTemplateColumns: `repeat(auto-fill, minmax(min(${value}, 100%), 1fr))`,
+    }),
+    'grid-auto-fit': (value) => ({
+      gridTemplateColumns: `repeat(auto-fit, minmax(min(${value}, 100%), 1fr))`,
+    }),
   });
 });
