@@ -25,3 +25,7 @@
     -moz-appearance: textfield;
   }
 }
+
+@utility text-heading {
+  @apply text-3xl font-bold leading-tight;
+}

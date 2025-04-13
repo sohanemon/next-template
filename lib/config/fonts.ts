@@ -8,4 +8,4 @@ const fontSans = FontSans({
 
 export const fonts = [fontSans.variable].join(' ');
 
-// add to font variable in tailwind/typography.ts
+// add to font variable in tailwind/theme.css

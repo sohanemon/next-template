@@ -14,7 +14,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <>
       <AppProgressBar
         shallowRouting
-        // color={colors.default.primary}
+        color="var(--color-primary)"
         height="2px"
         options={{ showSpinner: false }}
       />

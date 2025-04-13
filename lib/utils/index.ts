@@ -15,4 +15,7 @@ export const shimmer = (w: number | `${number}`, h: number | `${number}`) => {
 </svg>`;
 };
 
-export const getStyle = '';
+export const getPropertyValue = (variableName: string) =>
+  getComputedStyle?.(document?.documentElement)?.getPropertyValue?.(
+    variableName,
+  );
