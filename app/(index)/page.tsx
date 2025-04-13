@@ -12,6 +12,7 @@ export default function IndexPage() {
           Update Readme, Site.ts and package.json
         </h4>
       </Motion>
+      <div className="bg-foreground size-10  center-x" />
       <DeleteMe />
     </section>
   );

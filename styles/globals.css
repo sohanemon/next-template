@@ -1,3 +1,48 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "./theme.css";
+@import "./variants.css";
+@import "./utilities.css";
+
+@config '../tailwind.config.ts';
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50 min-w-0;
+  }
+
+  html {
+    overflow-x: clip;
+    --scroll-behavior: smooth !important;
+    scroll-behavior: smooth !important;
+  }
+  body {
+    @apply bg-background text-foreground min-h-screen antialiased overflow-x-clip selection:text-white selection:bg-primary;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  input,
+  textarea {
+    outline-style: none;
+    width: 100%;
+    background-color: transparent;
+  }
+}
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--color-primary);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}

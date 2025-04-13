@@ -10,8 +10,8 @@ function Skeleton({
       className={cn(
         'relative',
         'before:-translate-x-full ',
-        'bg-primary/20 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-primary/10 before:to-transparent',
-        'isolate overflow-hidden shadow-sm before:border-primary/10 before:border-t',
+        'bg-primary/20 before:absolute before:inset-0 before:bg-linear-to-r before:from-transparent before:via-primary/10 before:to-transparent',
+        'isolate overflow-hidden shadow-xs before:border-primary/10 before:border-t',
         shimmer && 'before:animate-[shimmer_2s_infinite]',
         className,
       )}

@@ -1,23 +1,27 @@
-/* fix layout shift of select box */
-html > body[style] {
-  margin-right: 0 !important;
-}
+@reference "./globals.css";
 
-/* fix drop-down hides sticky navigation-bar*/
-html > body[data-scroll-locked] {
-  overflow: clip !important;
-}
+@layer base {
+  /* fix layout shift of select box */
+  html > body[style] {
+    margin-right: 0 !important;
+  }
 
-a {
-  cursor: pointer;
-}
+  /* fix drop-down hides sticky navigation-bar*/
+  html > body[data-scroll-locked] {
+    overflow: clip !important;
+  }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input[type="number"] {
-  appearance: textfield;
-  -moz-appearance: textfield;
+  a {
+    cursor: pointer;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
 }
