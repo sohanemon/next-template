@@ -2,8 +2,7 @@
 @import "./theme.css";
 @import "./variants.css";
 @import "./utilities.css";
-
-@config '../tailwind.config.ts';
+@import "tw-animate-css";
 
 @layer base {
   * {
