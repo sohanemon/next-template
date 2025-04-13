@@ -1,8 +1,9 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
 @import "./theme.css";
 @import "./variants.css";
 @import "./utilities.css";
-@import "tw-animate-css";
 
 @layer base {
   * {
@@ -15,8 +16,13 @@
     scroll-behavior: smooth !important;
   }
   body {
-    @apply bg-background text-foreground min-h-screen antialiased overflow-x-clip selection:text-white selection:bg-primary;
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    min-height: 100vh;
+    overflow-x: clip;
     font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   input,
   textarea {
@@ -27,6 +33,11 @@
 }
 
 @layer base {
+  ::selection {
+    color: var(--color-primary-foreground);
+    background-color: var(--color-primary);
+  }
+
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
