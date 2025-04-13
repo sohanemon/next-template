@@ -1,7 +1,6 @@
 import plugin from 'tailwindcss/plugin';
 
 export const theme = plugin(() => {}, {
-  darkMode: ['class'],
   theme: {
     container: {
       center: true,

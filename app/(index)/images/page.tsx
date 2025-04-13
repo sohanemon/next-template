@@ -15,7 +15,7 @@ const images = [
 export default function ImagePage() {
   return (
     <main className="container min-h-[600vh]">
-      <div className="scrollbar-hidden tab-[200px] grid-auto-fill-[300px] grid gap-3 overflow-x-scroll">
+      <div className="scrollbar-hidden tab-[200px] grid-auto-fill-300 grid gap-3 overflow-x-scroll">
         {images.map((img) => (
           <Img placeholder="blur" key={img} src={img} width={2000} />
         ))}

@@ -14,3 +14,5 @@ export const shimmer = (w: number | `${number}`, h: number | `${number}`) => {
   <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
 </svg>`;
 };
+
+export const getStyle = '';
