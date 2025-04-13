@@ -37,3 +37,23 @@
 @utility container-mini {
   @apply mx-auto max-w-3xl px-2 w-full;
 }
+
+@utility grid-auto-fill-* {
+  grid-template-columns: repeat(
+      auto-fill,
+      minmax(
+        min(var(--grid-auto-value, calc(--value(integer) * 0.25rem)), 100%),
+        1fr
+      )
+    );
+}
+
+@utility grid-auto-fit-* {
+  grid-template-columns: repeat(
+      auto-fit,
+      minmax(
+        min(var(--grid-auto-value, calc(--value(integer) * 0.25rem)), 100%),
+        1fr
+      )
+    );
+}
