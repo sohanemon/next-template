@@ -1,10 +1,10 @@
 import type { VariantLabels, Variants } from 'motion/react';
 
 const defaultVariants = {
-  left: { x: -300, opacity: 0 },
-  right: { x: 300, opacity: 0 },
-  top: { y: -100, opacity: 0 },
-  bottom: { y: 100, opacity: 0, scale: 0.9 },
+  left: { x: '-10%', opacity: 0 },
+  right: { x: '10%', opacity: 0 },
+  top: { y: '-10%', opacity: 0 },
+  bottom: { y: '10%', opacity: 0, scale: 0.9 },
   collapsed: { opacity: 0, scale: 0 },
   'collapsed-x': { scaleX: 0, transformOrigin: 'left' },
   'collapsed-y': { scaleY: 0, transformOrigin: 'top' },
@@ -13,6 +13,19 @@ const defaultVariants = {
   spring: {
     transition: { type: 'spring', stiffness: 500, damping: 30 },
   },
+  rotate: { rotate: 360, opacity: 1 },
+  flip: { rotateY: 180, opacity: 1 },
+  skew: { skewX: 45, skewY: 10, opacity: 1 },
+  bounce: { y: [0, -20, 0], transition: { type: 'spring', bounce: 0.5 } },
+  shake: { x: [0, -10, 10, -10, 10, 0], transition: { duration: 0.6 } },
+  pulse: {
+    scale: [1, 1.2, 1],
+    transition: { repeat: Number.POSITIVE_INFINITY, duration: 1 },
+  },
+  wave: { pathLength: [0, 1], opacity: [0, 1], transition: { duration: 1 } },
+  pathDraw: { pathLength: 1, opacity: 1, transition: { duration: 2 } },
+  tilt3D: { perspective: 600, rotateX: 15, rotateY: 15, opacity: 1 },
+  zoom: { scale: 1.5, opacity: 1, transition: { duration: 0.5 } },
 } satisfies Variants;
 
 const fullPosition = {

@@ -1,52 +1,41 @@
 import { Motion } from '@/components/motion';
+import { motionVariants } from '@/lib/config/variants/motion.variant';
 import { cn } from '@sohanemon/utils';
 import type * as React from 'react';
 
 type DeleteMeProps = React.ComponentProps<'div'>;
 
 export function DeleteMe({ className, ...props }: DeleteMeProps) {
-  return (
-    <div className={cn(className)} {...props}>
-      <Motion
-        whileHover={{ scale: 2 }}
-        duration={3}
-        className="h-10 bg-rose-500"
-        initial="top-full"
-      />
-      <Motion duration={2} className="h-10 bg-blue-500" initial="top" />
-      <Motion
-        duration={2}
-        delay={3}
-        className="h-10 bg-yellow-500"
-        initial="left"
-      />
-      <Motion duration={2} className="h-10 bg-red-500" initial="right" />
-      <Motion
-        delay={3}
-        duration={2}
-        className="h-10 bg-purple-500"
-        initial="collapsed"
-      />
-      <Motion duration={2} className="h-10 bg-pink-500" initial="collapsed-x" />
-      <Motion
-        duration={2}
-        delay={3}
-        className="h-10 bg-orange-500"
-        initial="collapsed-y"
-      />
-      <Motion duration={2} className="h-10 bg-gray-500" initial="hidden" />
-      <Motion duration={2} className="h-10 bg-teal-500" initial="visible" />
-      <Motion
-        duration={2}
-        className="h-10 bg-indigo-500"
-        initial="spring"
-        animate={{ borderRadius: '50%' }}
-      />
+  const variants = Object.keys(motionVariants) as Array<
+    keyof typeof motionVariants
+  >;
 
-      <Motion duration={3} className="h-10 bg-lime-500" initial="left-full" />
-      <Motion duration={3} className="h-10 bg-amber-500" initial="right-full" />
-      <Motion duration={2} className="h-10 bg-green-500" initial="bottom" />
-      <Motion duration={3} className="h-10 bg-cyan-500" initial="bottom-full" />
+  return (
+    <div className={cn('space-y-6 p-6', className)} {...props}>
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
+        {variants.map((variant) => (
+          <div
+            key={variant}
+            className={cn(
+              'flex flex-col items-center rounded bg-white p-2 shadow',
+            )}
+          >
+            <Motion
+              className="mb-2 h-16 w-16 rounded bg-gradient-to-br from-indigo-200 to-indigo-400"
+              initial="visible"
+              duration={2}
+              variants={motionVariants}
+              whileHover={variant}
+            />
+            <span className="font-mono text-xs">{variant}</span>
+          </div>
+        ))}
+      </div>
+
+      <p className="text-gray-600 text-sm">
+        Hover the green squares to see pulsing, tap for shaking, and scroll to
+        draw SVG paths and waves.
+      </p>
     </div>
   );
 }

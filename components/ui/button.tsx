@@ -5,7 +5,7 @@ import { cn } from '@sohanemon/utils';
 import { Iconify } from '@sohanemon/utils/components';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { useRouter } from 'next-nprogress-bar';
-import * as React from 'react';
+import type * as React from 'react';
 import { useFormStatus } from 'react-dom';
 import { withTooltip } from './tooltip';
 
@@ -39,54 +39,50 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends React.ComponentProps<'button'>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   href?: string;
   loading?: boolean;
 }
 
-const _Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      className,
-      variant,
-      size,
-      href,
-      loading,
-      asChild = false,
-      onClick,
-      children,
-      ...props
-    },
-    ref,
-  ) => {
-    const Comp = asChild ? Slot : 'button';
+const _Button = ({
+  ref,
+  className,
+  variant,
+  size,
+  href,
+  loading,
+  asChild = false,
+  onClick,
+  children,
+  ...props
+}: ButtonProps) => {
+  const Comp = asChild ? Slot : 'button';
 
-    const { push, back } = useRouter();
-    const { pending } = useFormStatus();
+  const { push, back } = useRouter();
+  const { pending } = useFormStatus();
 
-    return (
-      <Comp
-        disabled={loading}
-        ref={ref}
-        className={cn(buttonVariants({ variant, size, className }))}
-        // note: enables power of link & button
-        onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-          href === '-1' ? back() : href && push(href);
-          onClick?.(e);
-        }}
-        {...props}
-      >
-        {loading || pending ? (
-          <Iconify icon="tabler:loader-2" className="animate-spin text-lg" />
-        ) : (
-          children
-        )}
-      </Comp>
-    );
-  },
-);
+  return (
+    <Comp
+      disabled={loading}
+      ref={ref}
+      className={cn(buttonVariants({ variant, size, className }))}
+      // note: enables power of link & button
+      onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+        href === '-1' ? back() : href && push(href);
+        onClick?.(e);
+      }}
+      {...props}
+    >
+      {loading || pending ? (
+        <Iconify icon="tabler:loader-2" className="animate-spin text-lg" />
+      ) : (
+        children
+      )}
+    </Comp>
+  );
+};
 
 _Button.displayName = 'Button';
 const Button = withTooltip(_Button);

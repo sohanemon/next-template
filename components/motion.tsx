@@ -10,7 +10,9 @@ import {
 import { Slot } from '@radix-ui/react-slot';
 import { useMediaQuery } from '@sohanemon/utils/hooks';
 
-type MotionProps = React.ComponentProps<typeof motion.div> & {
+export const RawMotion = motion.div;
+
+type MotionProps = React.ComponentProps<typeof RawMotion> & {
   as?: React.ElementType;
   asChild?: boolean;
   always?: boolean;
@@ -20,12 +22,10 @@ type MotionProps = React.ComponentProps<typeof motion.div> & {
 };
 
 export const MotionPrimitive = motion.create(
-  React.forwardRef<HTMLDivElement, MotionProps>(
-    ({ as = 'div', asChild, ...props }, ref) => {
-      const Comp = asChild ? Slot : as;
-      return <Comp ref={ref} {...props} />;
-    },
-  ),
+  ({ ref, as = 'div', asChild, ...props }: MotionProps) => {
+    const Comp = asChild ? Slot : as;
+    return <Comp ref={ref} {...props} />;
+  },
 );
 
 type MotionPrimitiveType = typeof MotionPrimitive;
@@ -86,5 +86,4 @@ const withVariants = <C extends MotionPrimitiveType>(
   };
 };
 
-export const RawMotion = motion.div;
 export const Motion = withVariants(MotionPrimitive);
