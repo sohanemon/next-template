@@ -1,12 +1,12 @@
 import { useMotionValueEvent, useScroll } from 'motion/react';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 const useNavToggle = () => {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [leaved, setLeaved] = useState(false);
 
-  const update = useCallback(() => {
+  const update = () => {
     if (scrollY.get() > 300) setLeaved(true);
     else setLeaved(false);
     if (scrollY.get() > (scrollY.getPrevious() || 0) && leaved) {
@@ -14,7 +14,7 @@ const useNavToggle = () => {
     }
 
     setHidden(false);
-  }, [leaved, scrollY]);
+  };
 
   useMotionValueEvent(scrollY, 'change', update);
   return { leaved, hidden };

@@ -16,7 +16,16 @@ const defaultVariants = {
   rotate: { rotate: 360, opacity: 1 },
   flip: { rotateY: 180, opacity: 1 },
   skew: { skewX: 45, skewY: 10, opacity: 1 },
-  bounce: { y: [0, -20, 0], transition: { type: 'spring', bounce: 0.5 } },
+  bounce: {
+    y: [0, -10],
+    transition: {
+      type: 'spring',
+      bounce: 0.5,
+      repeat: Number.POSITIVE_INFINITY,
+      repeatType: 'reverse',
+      duration: 1,
+    },
+  },
   shake: { x: [0, -10, 10, -10, 10, 0], transition: { duration: 0.6 } },
   pulse: {
     scale: [1, 1.2, 1],
