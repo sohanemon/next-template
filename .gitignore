@@ -42,3 +42,4 @@ yarn-error.log*
 tsconfig.tsbuildinfo
 pnpm-lock.yaml
 bun.lockb
+.aider*

@@ -1,1 +1,1 @@
-npm run fix && npm run typecheck
+npm run prepare && npm run fix && npm run typecheck
