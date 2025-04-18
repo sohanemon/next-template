@@ -19,23 +19,34 @@ type MotionProps = React.ComponentProps<typeof motion.div> & {
   exit?: MotionVariantsType | MotionVariantsType[];
 };
 
-const Component = React.forwardRef<HTMLDivElement, MotionProps>(
-  ({ as = 'div', asChild, ...props }, ref) => {
-    const Comp = asChild ? Slot : as;
-    return <Comp ref={ref} {...props} />;
-  },
+export const MotionPrimitive = motion.create(
+  React.forwardRef<HTMLDivElement, MotionProps>(
+    ({ as = 'div', asChild, ...props }, ref) => {
+      const Comp = asChild ? Slot : as;
+      return <Comp ref={ref} {...props} />;
+    },
+  ),
 );
 
-Component.displayName = 'Motion';
-const MotionComponent = motion.create(Component);
+type MotionPrimitiveType = typeof MotionPrimitive;
 
 type MotionQuery = {
   breakpoint?: Parameters<typeof useMediaQuery>[0];
-  mediaProps?: React.ComponentProps<typeof MotionComponent>;
+  mediaProps?: React.ComponentProps<MotionPrimitiveType>;
   delay?: number;
   duration?: number;
 } & React.ComponentProps<'div'>;
-const withVariants = (Comp: typeof MotionComponent) => {
+
+const withVariants = <C extends MotionPrimitiveType>(
+  Comp: MotionPrimitiveType,
+) => {
+  type EnhancedProps = React.ComponentProps<C> &
+    MotionQuery & {
+      animate?: MotionVariantsType | MotionVariantsType[];
+      initial?: MotionVariantsType | MotionVariantsType[];
+      exit?: MotionVariantsType | MotionVariantsType[];
+    };
+
   return ({
     transition,
     always,
@@ -46,7 +57,7 @@ const withVariants = (Comp: typeof MotionComponent) => {
     delay,
     duration = 0.5,
     ...props
-  }: React.ComponentProps<typeof Comp> & MotionQuery) => {
+  }: EnhancedProps) => {
     const id = React.useId();
     const sm = !useMediaQuery(breakpoint);
 
@@ -75,6 +86,5 @@ const withVariants = (Comp: typeof MotionComponent) => {
   };
 };
 
-export const MDiv = motion.div;
-export const RawMotion = MotionComponent;
-export const Motion = withVariants(MotionComponent);
+export const RawMotion = motion.div;
+export const Motion = withVariants(MotionPrimitive);
