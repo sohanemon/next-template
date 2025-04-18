@@ -4,7 +4,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { cn } from '@sohanemon/utils';
 import { Iconify } from '@sohanemon/utils/components';
 import { type VariantProps, cva } from 'class-variance-authority';
-import { useRouter } from 'next-nprogress-bar';
+import { useRouter } from 'next/navigation';
 import type * as React from 'react';
 import { useFormStatus } from 'react-dom';
 import { withTooltip } from './tooltip';

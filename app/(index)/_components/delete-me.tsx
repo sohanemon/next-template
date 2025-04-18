@@ -17,11 +17,11 @@ export function DeleteMe({ className, ...props }: DeleteMeProps) {
           <div
             key={variant}
             className={cn(
-              'flex flex-col items-center rounded bg-white p-2 shadow',
+              'flex flex-col items-center rounded bg-card p-2 shadow',
             )}
           >
             <Motion
-              className="mb-2 h-16 w-16 rounded bg-gradient-to-br from-indigo-200 to-indigo-400"
+              className="mb-2 h-16 w-16 rounded bg-gradient-to-br from-primary/30 to-primary"
               initial="visible"
               duration={2}
               variants={motionVariants}
@@ -32,9 +32,8 @@ export function DeleteMe({ className, ...props }: DeleteMeProps) {
         ))}
       </div>
 
-      <p className="text-gray-600 text-sm">
-        Hover the green squares to see pulsing, tap for shaking, and scroll to
-        draw SVG paths and waves.
+      <p className="text-center text-muted-foreground text-sm">
+        Hover over the boxes to see the different variants.
       </p>
     </div>
   );

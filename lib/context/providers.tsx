@@ -1,6 +1,6 @@
 'use client';
 
-import { AppProgressBar } from 'next-nprogress-bar';
+import { ProgressProvider } from '@bprogress/next/app';
 import dynamic from 'next/dynamic';
 
 const ResponsiveIndicator = dynamic(
@@ -12,13 +12,14 @@ const ResponsiveIndicator = dynamic(
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <AppProgressBar
+      <ProgressProvider
         shallowRouting
         color="var(--color-primary)"
-        height="2px"
+        height="0.2rem"
         options={{ showSpinner: false }}
-      />
-      {children}
+      >
+        {children}
+      </ProgressProvider>
       <ResponsiveIndicator />
     </>
   );
