@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf build",
-    "dev": "next dev --turbopack",
+    "dev": "npm run prepare; next dev --turbopack",
     "build": "next build",
     "preview": "next build && next start",
     "start": "next start",
@@ -19,7 +19,8 @@
     "format": "biome format .",
     "format:write": "biome format . --write",
     "typecheck": "tsc --noEmit",
-    "prepare": "husky"
+    "generate:colors": "./lib/scripts/generate-theme-aliases.sh",
+    "prepare": "husky; npm run generate:colors"
   },
   "dependencies": {
     "@next/third-parties": "15.0.2",
