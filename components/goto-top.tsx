@@ -1,45 +1,51 @@
 'use client';
 
 import { scrollTo } from '@sohanemon/utils';
-import { useEffect, useRef } from 'react';
+import { Iconify } from '@sohanemon/utils/components';
+import { AnimatePresence } from 'framer-motion';
+import * as React from 'react';
+import { Motion } from './motion';
 
 export function GoToTop() {
-  const goToTopRef = useRef<HTMLButtonElement>(null);
-  useEffect(() => {
-    window.onscroll = () => {
+  const [shouldRender, setShouldRender] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
       if (
         document.body.scrollTop > 700 ||
         document.documentElement.scrollTop > 700
-      ) {
-        goToTopRef.current?.classList.remove('hidden');
-      } else {
-        goToTopRef.current?.classList.add('hidden');
-      }
+      )
+        setShouldRender(true);
+      else setShouldRender(false);
     };
 
-    return () => {};
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
-    <>
-      <button
-        ref={goToTopRef}
-        className="fixed right-6 bottom-6 z-50 hidden size-6 md:right-10 md:bottom-10 md:size-10"
-        title="Go To Top"
-        onClick={() => scrollTo({ current: window as any }, 'top')}
-      >
-        <div className="grid size-full place-content-center rounded-full bg-primary/80 text-foreground shadow-md hover:bg-primary">
-          <svg
-            className="size-4 md:size-6"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" />
-          </svg>
-        </div>
-        <span className="sr-only">Go to top</span>
-      </button>
-    </>
+    <AnimatePresence>
+      {shouldRender && (
+        <Motion
+          as="button"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 30, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed right-6 bottom-6 z-50 size-10 md:right-10 md:bottom-10 md:size-12"
+          title="Go To Top"
+          onClick={() => scrollTo({ current: window as any }, 'top')}
+          aria-label="Go to top"
+        >
+          <div className="grid size-full cursor-pointer place-content-center rounded-full bg-primary/80 text-primary-foreground shadow-md transition-colors hover:bg-primary">
+            <Iconify icon="lucide:chevron-up" className="size-6" />
+          </div>
+          <span className="sr-only">Go to top</span>
+        </Motion>
+      )}
+    </AnimatePresence>
   );
 }
