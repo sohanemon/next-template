@@ -12,7 +12,8 @@ function Image({ src, width, height, alt, ...props }: ImgProps) {
       height={height || width || 300}
       alt={
         alt ||
-        src.substring(src.lastIndexOf('/') + 1).slice(0, 20) ||
+        (typeof src === 'string' &&
+          src.substring(src.lastIndexOf('/') + 1).slice(0, 20)) ||
         'Picture Element'
       }
       src={cleanSrc(src as string)}
