@@ -30,6 +30,14 @@ const nextConfig: NextConfig = {
     process.env.NODE_ENV === 'production' ? { removeConsole: true } : {},
   typescript:
     process.env.NODE_ENV === 'production' ? { ignoreBuildErrors: true } : {},
+  async rewrites() {
+    return [
+      {
+        source: '/',
+        destination: '/home',
+      },
+    ];
+  },
 };
 
 export default nextConfig;

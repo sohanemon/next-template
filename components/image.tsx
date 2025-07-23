@@ -2,7 +2,7 @@ import { cleanSrc, svgToBase64 } from '@sohanemon/utils';
 import NextImageComponent from 'next/image';
 import type React from 'react';
 
-import { shimmer } from '@/lib/utils';
+import { shimmer } from '@/lib/utils/shimmer';
 import type { ImgProps } from '@/types/index.types';
 
 function Image({ src, width, height, alt, ...props }: ImgProps) {

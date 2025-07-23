@@ -20,7 +20,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head />
       <body
         suppressHydrationWarning
-        className={cn('flex min-h-screen flex-col font-sans', fonts)}
+        className={cn(
+          'flex min-h-screen flex-col font-sans',
+          'group/body',
+          fonts,
+        )}
       >
         <Providers>{children}</Providers>
       </body>

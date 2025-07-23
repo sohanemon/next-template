@@ -1,5 +1,5 @@
 import { Motion } from '@/components/motion';
-import { DeleteMe } from './_components/delete-me';
+import { DeleteMe } from '../_components/delete-me';
 export const metadata = {
   title: 'Home',
 };
