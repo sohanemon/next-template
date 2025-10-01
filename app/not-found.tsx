@@ -1,8 +1,8 @@
 'use client';
 
+import { convertToNormalCase } from '@sohanemon/utils';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
 import { Brand } from '@/components/brand';
 
 export const dynamic = 'force-dynamic';

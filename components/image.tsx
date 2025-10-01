@@ -43,7 +43,7 @@ export const Img: React.FC<ImgProps> = ({ placeholder, ...props }) => {
 
 const BlurImg = async (props: ImgProps) => {
   const blurData = await import('@/lib/action/placeholder').then((f) =>
-    f.getPlaceholderImage(props.src),
+    f.getPlaceholderImage(props.src as string),
   );
   return <Image placeholder="blur" blurDataURL={blurData} {...props} />;
 };

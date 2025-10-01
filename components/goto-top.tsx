@@ -2,7 +2,7 @@
 
 import { scrollTo } from '@sohanemon/utils';
 import { Iconify } from '@sohanemon/utils/components';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'motion/react';
 import * as React from 'react';
 import { Motion } from './motion';
 

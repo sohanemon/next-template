@@ -1,5 +1,5 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { type LocationOptions, createLocation } from '../utils/helper';
+import { createLocation, type LocationOptions } from '../utils/helper';
 
 export function useLocation() {
   const pathname = usePathname();

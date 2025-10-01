@@ -1,7 +1,7 @@
-import { Motion } from '@/components/motion';
-import { motionVariants } from '@/lib/config/variants/motion.variant';
 import { cn } from '@sohanemon/utils';
 import type * as React from 'react';
+import { Motion } from '@/components/motion';
+import { motionVariants } from '@/lib/config/variants/motion.variant';
 
 type DeleteMeProps = React.ComponentProps<'div'>;
 

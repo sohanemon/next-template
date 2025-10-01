@@ -20,7 +20,9 @@
     background-color: var(--color-background);
     min-height: 100vh;
     overflow-x: clip;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

@@ -1,14 +1,12 @@
 'use client';
-import * as React from 'react';
-
+import { Slot } from '@radix-ui/react-slot';
+import { useMediaQuery } from '@sohanemon/utils/hooks';
 import { motion } from 'motion/react';
-
+import * as React from 'react';
 import {
   type MotionVariantsType,
   motionVariants,
 } from '@/lib/config/variants/motion.variant';
-import { Slot } from '@radix-ui/react-slot';
-import { useMediaQuery } from '@sohanemon/utils/hooks';
 
 export const RawMotion = motion.div;
 
