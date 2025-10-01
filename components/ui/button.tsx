@@ -10,19 +10,19 @@ import { Spinner } from '../spinner';
 import { withTooltip } from './tooltip';
 
 const buttonVariants = cva(
-  'inline-flex items-center items-center justify-center gap-1 whitespace-nowrap rounded border border-primary/50 font-semibold text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0',
+  'inline-flex items-center justify-center gap-1 whitespace-nowrap rounded border border-primary/50 font-semibold text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
         default: 'bg-primary text-primary-foreground hover:bg-primary/90',
         opacity:
-          'border-primary/30 bg-primary/10 text-primary hover:bg-primary/5',
+          'bg-primary/10 text-primary border-primary/30 hover:bg-primary/5',
         'opacity-bordered':
-          'border-primary/30 bg-primary/10 text-primary hover:bg-primary/5',
+          'bg-primary/10 text-primary border-primary/30 hover:bg-primary/5',
         destructive:
           'border-current bg-destructive text-destructive-foreground hover:bg-destructive/90',
         'destructive-outline':
-          'border border-destructive text-destructive hover:bg-destructive/10',
+          'border border-destructive hover:bg-destructive/10 text-destructive',
         outline: 'border border-current text-accent hover:bg-accent/10',
         'dark-outline':
           'border border-foreground-dark text-foreground-dark hover:bg-background-dark/10',
@@ -38,7 +38,7 @@ const buttonVariants = cva(
         secondary:
           'border-background bg-background text-foreground hover:bg-background/80',
         gradient:
-          'bg-gradient-to-r from-tertiary to-primary text-white shadow-tertiary/25 hover:from-tertiary/90 hover:to-primary/90',
+          'bg-gradient-to-r from-tertiary to-primary hover:from-tertiary/90 hover:to-primary/90 text-white shadow-tertiary/25',
         ghost: 'border-transparent hover:bg-accent/10 hover:text-accent',
         link: 'text-primary underline-offset-4 hover:underline',
       },
@@ -96,7 +96,6 @@ const _Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           'relative isolate',
           'has-[.spinner]:[&_.button-children]:opacity-0',
-          'not-has-[.spinner]:[&_.button-children]:contents',
           props.role === 'group' // NOTE:  unstyled
             ? className
             : buttonVariants({ variant, size, className }),
@@ -108,7 +107,8 @@ const _Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {href && (
             <Link
               target={target}
-              prefetch
+              // TODO: re-enable later
+              prefetch={false}
               href={href}
               className="absolute inset-0"
             >
@@ -116,7 +116,13 @@ const _Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             </Link>
           )}
           {loading && <Spinner inline className="absolute inset-0 size-full" />}
-          <span className={cn('button-children')}>{children}</span>
+          <span
+            className={cn(
+              'button-children gap-[inherit] [align-items:inherit] [display:inherit]',
+            )}
+          >
+            {children}
+          </span>
         </>
       </Comp>
     );

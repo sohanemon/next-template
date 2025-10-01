@@ -16,7 +16,7 @@ export default function NotFound() {
       <Brand />
       <br />
       <p>
-        <strong className="capitalize">{pathname.split('/').pop()}</strong>{' '}
+        <strong>{convertToNormalCase(pathname.split('/').pop() ?? '')}</strong>{' '}
         under Construction
       </p>
       <Link className="mt-6 text-xs hover:text-primary" href="/">
