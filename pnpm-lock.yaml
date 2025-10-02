@@ -60,6 +60,12 @@ importers:
       '@biomejs/biome':
         specifier: ^2.2.4
         version: 2.2.5
+      '@repo/tailwind':
+        specifier: workspace:*
+        version: link:../../packages/tailwind
+      '@repo/typescript':
+        specifier: workspace:*
+        version: link:../../packages/typescript
       '@sohanemon/utils':
         specifier: ^4.1.9
         version: 4.1.16
@@ -87,6 +93,17 @@ importers:
       typescript:
         specifier: ^5.8.3
         version: 5.9.3
+
+  packages/tailwind:
+    devDependencies:
+      postcss:
+        specifier: ^8.5.3
+        version: 8.5.6
+      tailwindcss:
+        specifier: ^4.1.5
+        version: 4.1.14
+
+  packages/typescript: {}
 
 packages:
 

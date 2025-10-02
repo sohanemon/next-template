@@ -1,37 +1,9 @@
 {
+  "extends": "@repo/typescript/nextjs.json",
   "compilerOptions": {
-    /* Base Options: */
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "target": "es2015",
-    "allowJs": true,
-    "resolveJsonModule": true,
-    "moduleDetection": "force",
-    "isolatedModules": true,
-    /* Strictness */
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    /* If transpiling with Meta Framework: */
-    "moduleResolution": "Bundler",
-    "module": "ESNext",
-    "sourceMap": true,
-    /* If your code runs in the DOM: */
-    "lib": ["ESNext", "dom", "dom.iterable"],
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "incremental": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
-    },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "strictNullChecks": true,
-    "downlevelIteration": true
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -39,6 +11,5 @@
     "**/*.tsx",
     "build/types/**/*.ts",
     ".next/types/**/*.ts"
-  ],
-  "exclude": ["node_modules"]
+  ]
 }
