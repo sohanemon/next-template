@@ -1,0 +1,8 @@
+{
+  "$schema": "https://sohanjs.web.app/draft/next/schema.json",
+  "packageManager": "pnpm",
+  "cwd": "$NVIM_CWD",
+  "commands": {
+    "dev": "pnpm dev"
+  }
+}
